@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCare - Daily Health & Self-Care</title>
+    <meta name="description" content="Get your daily personalized tips on health, nutrition, fitness, mental well-being, and sleep improvement.">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --secondary: #10B981;
+            --bg-dark: #0F172A;
+            --text-light: #F8FAFC;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Gradients */
+        .bg-blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+            animation: float 25s infinite ease-in-out;
+            opacity: 0.6;
+        }
+        .blob-1 {
+            width: 450px;
+            height: 450px;
+            background: rgba(79, 70, 229, 0.4);
+            top: -150px;
+            left: -150px;
+        }
+        .blob-2 {
+            width: 550px;
+            height: 550px;
+            background: rgba(16, 185, 129, 0.3);
+            bottom: -250px;
+            right: -150px;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -60px) scale(1.05); }
+            66% { transform: translate(-30px, 30px) scale(0.95); }
+        }
+
+        header {
+            padding: 2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60A5FA, #34D399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .download-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 5%;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+
+        p.subtitle {
+            font-size: 1.3rem;
+            color: #94A3B8;
+            text-align: center;
+            margin-bottom: 4rem;
+            max-width: 650px;
+            line-height: 1.6;
+        }
+
+        /* Glassmorphism Card */
+        .tip-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 30px;
+            padding: 3.5rem;
+            max-width: 750px;
+            width: 100%;
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 40px 70px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            background: rgba(139, 92, 246, 0.15);
+            color: #A78BFA;
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tip-text {
+            font-size: 2rem;
+            line-height: 1.5;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            color: #FFFFFF;
+        }
+
+        .actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px -10px var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #4338CA;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -10px var(--primary);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .categories-nav {
+            margin-top: 5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .cat-pill {
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #94A3B8;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cat-pill:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+        }
+        
+        .cat-pill.active {
+            background: white;
+            color: var(--bg-dark);
+            border-color: white;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            .tip-text { font-size: 1.5rem; }
+            .tip-card { padding: 2rem; border-radius: 20px; }
+            .btn { padding: 0.8rem 1.5rem; width: 100%; }
+            .actions { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+
+    <header>
+        <div class="logo">SafeCare.</div>
+        <button class="download-btn">Get the App</button>
+    </header>
+
+    <main>
+        <h1>Your Daily Wellness</h1>
+        <p class="subtitle">Bite-sized, actionable health and self-care tips to improve your physical and mental wellbeing every single day.</p>
+
+        <div class="tip-card" id="tipCard">
+            <div class="category-badge" id="categoryBadge">Mental Health</div>
+            <div class="tip-text" id="tipText">
+                "Practice the 4-7-8 breathing technique when feeling stressed: inhale for 4 seconds, hold for 7 seconds, exhale for 8 seconds."
+            </div>
+            <div class="actions">
+                <button class="btn btn-primary" onclick="generateNewTip()">Get Next Tip</button>
+                <button class="btn btn-secondary">❤️ Save Tip</button>
+            </div>
+        </div>
+
+        <div class="categories-nav">
+            <div class="cat-pill active">All Topics</div>
+            <div class="cat-pill">Nutrition</div>
+            <div class="cat-pill">Fitness</div>
+            <div class="cat-pill">Mental Health</div>
+            <div class="cat-pill">Sleep Routine</div>
+        </div>
+    </main>
+
+    <script>
+        const tips = [
+            { text: "Drink a glass of water immediately after waking up to kickstart your metabolism and hydrate your brain.", category: "Nutrition", color: "#60A5FA", bg: "rgba(59, 130, 246, 0.15)" },
+            { text: "Take a 5-minute break every hour to stand up, stretch, and look at something 20 feet away to rest your eyes.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Incorporate 15 minutes of dynamic stretching into your morning routine to improve flexibility and blood flow.", category: "Fitness", color: "#34D399", bg: "rgba(16, 185, 129, 0.15)" },
+            { text: "Avoid screens 1 hour before bed. The blue light inhibits melatonin production, making it harder to fall asleep.", category: "Sleep Routine", color: "#FBBF24", bg: "rgba(245, 158, 11, 0.15)" },
+            { text: "Practice the 4-7-8 breathing technique when feeling stressed: inhale for 4s, hold for 7s, exhale for 8s.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Try swapping out one processed snack for a handful of nuts or fresh fruit today.", category: "Nutrition", color: "#60A5FA", bg: "rgba(59, 130, 246, 0.15)" },
+            { text: "Go for a brisk 10-minute walk after your heaviest meal to stabilize blood sugar levels.", category: "Fitness", color: "#34D399", bg: "rgba(16, 185, 129, 0.15)" },
+            { text: "Keep a journal by your bed and write down three things you are grateful for before going to sleep.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Keep your bedroom cool, ideally around 65°F (18°C), to promote deeper, more restorative sleep.", category: "Sleep Routine", color: "#FBBF24", bg: "rgba(245, 158, 11, 0.15)" },
+            { text: "Include a source of protein in every meal to keep your energy levels stable throughout the day.", category: "Nutrition", color: "#60A5FA", bg: "rgba(59, 130, 246, 0.15)" },
+            { text: "Try to get at least 15 minutes of sunlight exposure every morning to help regulate your circadian rhythm.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Swap your second cup of coffee for herbal tea or green tea to avoid the afternoon caffeine crash.", category: "Nutrition", color: "#60A5FA", bg: "rgba(59, 130, 246, 0.15)" },
+            { text: "Do 20 squats while brushing your teeth to effortlessly sneak some lower-body exercise into your day.", category: "Fitness", color: "#34D399", bg: "rgba(16, 185, 129, 0.15)" },
+            { text: "Establish a calming pre-sleep ritual, such as reading a book or listening to soft music, to signal your brain it's time to rest.", category: "Sleep Routine", color: "#FBBF24", bg: "rgba(245, 158, 11, 0.15)" },
+            { text: "Take 10 deep belly breaths before responding to a frustrating email or message.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Take the stairs instead of the elevator whenever you have the option. Small habits compound over time.", category: "Fitness", color: "#34D399", bg: "rgba(16, 185, 129, 0.15)" },
+            { text: "Chew your food slowly and mindfully. It improves digestion and prevents overeating.", category: "Nutrition", color: "#60A5FA", bg: "rgba(59, 130, 246, 0.15)" },
+            { text: "Set an alarm to go to bed at the exact same time every day, even on weekends.", category: "Sleep Routine", color: "#FBBF24", bg: "rgba(245, 158, 11, 0.15)" },
+            { text: "Unfollow social media accounts that make you feel anxious or inadequate. Curate your digital environment.", category: "Mental Health", color: "#A78BFA", bg: "rgba(139, 92, 246, 0.15)" },
+            { text: "Engage your core by sitting up perfectly straight for 5 minutes every time you sit at your desk.", category: "Fitness", color: "#34D399", bg: "rgba(16, 185, 129, 0.15)" }
+        ];
+
+        let currentCategory = "All Topics";
+
+        function generateNewTip() {
+            const badge = document.getElementById('categoryBadge');
+            const text = document.getElementById('tipText');
+
+            text.style.opacity = '0';
+            badge.style.opacity = '0';
+            text.style.transform = 'translateY(10px)';
+
+            setTimeout(() => {
+                let filteredTips = tips;
+                if (currentCategory !== "All Topics") {
+                    filteredTips = tips.filter(t => t.category === currentCategory);
+                }
+                
+                // Fallback if no tips in category
+                if (filteredTips.length === 0) filteredTips = tips;
+
+                const randomTip = filteredTips[Math.floor(Math.random() * filteredTips.length)];
+                
+                badge.textContent = randomTip.category;
+                badge.style.color = randomTip.color;
+                badge.style.background = randomTip.bg;
+                badge.style.borderColor = randomTip.color.replace(')', ', 0.3)').replace('rgb', 'rgba'); 
+                
+                text.textContent = `"${randomTip.text}"`;
+                
+                text.style.opacity = '1';
+                badge.style.opacity = '1';
+                text.style.transform = 'translateY(0)';
+                text.style.transition = 'all 0.4s ease';
+                badge.style.transition = 'opacity 0.4s ease';
+            }, 400);
+        }
+
+        document.querySelectorAll('.cat-pill').forEach(pill => {
+            pill.addEventListener('click', (e) => {
+                document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.textContent;
+                generateNewTip();
+            });
+        });
+    </script>
+</body>
+</html>

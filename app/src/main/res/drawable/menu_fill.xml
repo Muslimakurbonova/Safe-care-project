@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+  <path
+      android:pathData="M5.333,2H7.833C9.674,2 11.167,3.492 11.167,5.333V7.833C11.167,9.674 9.674,11.167 7.833,11.167H5.333C3.492,11.167 2,9.674 2,7.833V5.333C2,3.492 3.492,2 5.333,2Z"
+      android:fillColor="@color/nav_icon_active"/>
+  <path
+      android:pathData="M16.167,2H18.667C20.507,2 22,3.492 22,5.333V7.833C22,9.674 20.507,11.167 18.667,11.167H16.167C14.326,11.167 12.833,9.674 12.833,7.833V5.333C12.833,3.492 14.326,2 16.167,2Z"
+      android:fillColor="@color/nav_icon_active"/>
+  <path
+      android:pathData="M5.333,12.833H7.833C9.674,12.833 11.167,14.325 11.167,16.166V18.666C11.167,20.507 9.674,22 7.833,22H5.333C3.492,22 2,20.507 2,18.666V16.166C2,14.325 3.492,12.833 5.333,12.833Z"
+      android:fillColor="@color/nav_icon_active"/>
+  <path
+      android:pathData="M16.167,12.833H18.667C20.507,12.833 22,14.325 22,16.166V18.666C22,20.507 20.507,22 18.667,22H16.167C14.326,22 12.833,20.507 12.833,18.666V16.166C12.833,14.325 14.326,12.833 16.167,12.833Z"
+      android:fillColor="@color/nav_icon_active"/>
+</vector>

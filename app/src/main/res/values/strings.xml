@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SafeCare</string>
+    <string name="content_data"></string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="retry">Retry</string>
+    <string name="knowledge">Knowledge</string>
+    <string name="about_app">About App</string>
+    <string name="rate">Rate</string>
+    <string name="other_apps">Other Apps</string>
+    <string name="share">Share</string>
+    <string name="settings">Settings</string>
+    <string name="privacy_police">Privacy Policy</string>
+    <string name="bookmark">Favorites</string>
+    <string name="menu">Menu</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="try_again">Try Again</string>
+    <string name="about_us">About Us</string>
+    <string name="version">Version: </string>
+    <string name="company">Company: Programm Soft MCHJ</string>
+    <string name="mail">Mail: programmsoftuz@gmail.com</string>
+    <string name="category">Categories</string>
+    <string name="google_play">https://play.google.com/store/apps/dev?id=5705777915421890833</string>
+    <string name="copied">Copied</string>
+    <string name="notification">Notification</string>
+    <string name="cat_nutrition">Nutrition</string>
+    <string name="cat_fitness">Fitness</string>
+    <string name="cat_mental_health">Mental Health</string>
+    <string name="cat_sleep_routine">Sleep Routine</string>
+    <string name="notification_time">Notification Time</string>
+    <string name="sync_favorites">Sync Favorites</string>
+</resources>

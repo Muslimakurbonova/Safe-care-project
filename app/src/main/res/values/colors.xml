@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_one">#4F46E5</color> <!-- Primary: Indigo -->
+    <color name="color_two">#10B981</color> <!-- Secondary: Emerald -->
+    <color name="color_three">#F8FAFC</color> <!-- Background: Slate 50 -->
+    <color name="color_four">#FFFFFF</color> <!-- Card/Item Background -->
+    <color name="text">#1E293B</color> <!-- Text: Slate 800 -->
+    <color name="red">#EF4444</color>
+    <color name="stroke">#E2E8F0</color>
+    <color name="icon">#64748B</color>
+    <color name="nav_icon">#94A3B8</color>
+    <color name="nav_icon_active">#4F46E5</color>
+    <color name="ripple">#E2E8F0</color>
+    <color name="item_background">@color/color_four</color>
+    <color name="bottom_nav">@color/white</color>
+    <color name="background">@color/color_three</color>
+    <color name="splash_background">@color/color_one</color>
+    <color name="status_bar">@color/background</color>
+    <color name="navigation_bar">@color/bottom_nav</color>
+    <color name="color_50">#E0E7FF</color> <!-- Indigo 100 -->
+</resources>
